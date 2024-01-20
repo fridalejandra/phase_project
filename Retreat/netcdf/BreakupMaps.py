@@ -2,8 +2,7 @@
 import numpy as np
 import csv
 import glob
-import matplotlib as mpl, matplotlib.pyplot as plt
-print(mpl.__version__)
+import matplotlib as plt
 import xarray as xr
 import seaborn as sns;
 sns.set(color_codes=True)
@@ -11,9 +10,9 @@ plt.style.use('ggplot')
 import netCDF4 as nc
 from mpl_toolkits.basemap import Basemap
 import matplotlib.colors as colors
-
 from pylab import *
 import os
+import matplotlib
 from matplotlib import ticker
 from netCDF4 import Dataset
 import matplotlib.pyplot as plt
@@ -23,6 +22,7 @@ import datetime
 import calendar as cal
 from matplotlib.colors import ListedColormap, BoundaryNorm
 import cmocean
+import cartopy
 
 
 ## Sans Serif ##
@@ -31,7 +31,7 @@ rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = ['Tahoma']
 
 #Here we use the netcdf package to assign all variables
-sicnc = nc.Dataset('/Volumes/WorkDrive/melt_dates/seaiceconc.nc')
+sicnc = nc.Dataset('/Users/fridaperez/Developer/repos/phase_project/SIC_07132012_01012024.nc')
 latitude = sicnc.variables['GridLat_SpPolarGrid12km'][:]
 longitude = sicnc.variables['GridLon_SpPolarGrid12km'][:]
 
@@ -39,11 +39,11 @@ longitude = sicnc.variables['GridLon_SpPolarGrid12km'][:]
 # cwd = os.getcwd()  # Get the current working directory (cwd)
 # files = os.listdir(cwd)  # Get all the files in that directory
 # print("Files in %r: %s" % (cwd, files))
-dir = '/Volumes/WorkDrive/melt_dates/files/5d_15p_dec_nc/nan/'
+dir = '/Users/fridaperez/Developer/repos/phase_project/Retreat/netcdf/'
 
 count = 0
 #plt.style.use('dark_background')
-Mytitle = list(map(str,list(range(2010,2022))))
+Mytitle = list(map(str,list(range(2010,2023))))
 print(Mytitle)
 
 files = []
@@ -64,8 +64,7 @@ for i,title_name in zip(os.listdir(dir),Mytitle):
         map.drawcoastlines(color='k', linewidth=0.5)
 
         # Draw parallels and Meridians
-        map.drawparallels(np.arange(-80., 0., 20.), labels=[False, False, False, False], linewidth=0.4, color='k',
-                          fontsize=5)
+        map.drawparallels(np.arange(-80., 0., 20.), labels=[False, False, False, False], linewidth=0.4, color='k', fontsize=5)
         meridians = np.arange(0., 360., 30.)
         map.drawmeridians(meridians, labels=[1, 1, 1, 1], linewidth=0.4, color='k', fontsize=5, textcolor='white')
 

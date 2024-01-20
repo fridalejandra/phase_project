@@ -21,7 +21,7 @@ longitude = sicnc.variables['GridLon_SpPolarGrid12km'][:]
 
 ## Automate this for all the files ##
 
-dir = '/Users/fridaperez/Developer/repos/phase_project/Retreat/nc_30/'
+dir = '/Users/fridaperez/Developer/repos/phase_project/Retreat/nc_40/'
 count = 0
 files = []
 for i in os.listdir(dir):
@@ -34,11 +34,10 @@ for i in os.listdir(dir):
         ## now that our data is a numpy array, we can convert the zeros and two's into NaNs for a cleaner plot ##
         BU_nan = ice.copy()
         BU_nan[BU_nan == 0.0] = np.nan
-        # BU_nan[BU_nan == 1.0] = np.nan
+       # BU_nan[BU_nan == 1.0] = np.nan
         # BU_nan[BU_nan == 2.0] = np.nan
         # BU_nan[BU_nan == 3.0] = np.nan
         BU_nan[BU_nan == 4.0] = np.nan
-
 
         breakup = xr.DataArray(BU_nan)
         breakup = xr.DataArray(
@@ -54,7 +53,7 @@ for i in os.listdir(dir):
         )
 
         figname = 'nan_{}'.format(i)
-        mir = '/Users/fridaperez/Developer/repos/phase_project/Retreat/nan_30/'
+        mir = '/Users/fridaperez/Developer/repos/phase_project/Retreat/nan_40/'
         dest = os.path.join(mir, figname)
         breakup.to_netcdf(dest)  # write image to fill
         print('Done.')
