@@ -8,6 +8,7 @@ import netCDF4 as nc
 from matplotlib import rcParams
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = ['Tahoma']
+plt.style.use('dark_background')
 
 #Here we use the netcdf package to assign all variables
 sicnc = nc.Dataset('/Volumes/WorkDrive/melt_dates/seaiceconc.nc')

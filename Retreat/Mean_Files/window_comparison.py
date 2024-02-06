@@ -33,7 +33,7 @@ import seaborn as sns
 sns.set(color_codes=True)
 plt.style.use('ggplot')
 
-plt.style.use('dark_background')
+#plt.style.use('dark_background')
 # Plotting
 fig, axes = plt.subplots(1, 3, figsize=(15, 9), sharex=True, sharey=True)
 cmap = 'viridis'
@@ -63,5 +63,5 @@ cs3 = plot_map(axes[2], mean7)
 # # cbar = plt.colorbar(cs1, ax=axes, drawedges=True, orientation='horizontal', pad=0.15)
 # # cbar.set_label('DAYS SINCE AUGUST')
 
-plt.savefig('/Users/fridaperez/Desktop/windowcomp_dark.png', dpi=300)
+plt.savefig('/Users/fridaperez/Desktop/Proposal/Proposal_Figures/windowcomp_w.png', dpi=300)
 plt.show()

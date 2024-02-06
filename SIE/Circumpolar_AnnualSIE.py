@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import datetime
 
 # Directory and time
-directoryfigure = '/Users/fridaperez/Desktop/'
+directoryfigure = '/Users/fridaperez/Developer/repos/Proposal/Proposal_Figures/'
 now = datetime.datetime.now()
 currentmn = str(now.month)
 currentdy = str(now.day)
@@ -19,7 +19,7 @@ end_year = 2023
 
 # Turn on to read in the data (slow!)
 datareader = True
-plt.style.use('dark_background')
+#plt.style.use('dark_background')
 
 # Load csv
 xpath = '/Users/fridaperez/Developer/repos/phase_project/SIE/S_seaice_extent_daily_v3.0.csv'
@@ -35,9 +35,9 @@ plt.rc('text', usetex=True)
 plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Avant Garde']})
 
 # Set the background color to white
-fig = plt.figure(figsize=(10, 6), facecolor='black')
+fig = plt.figure(figsize=(10, 6), facecolor='white')
 
-plt.rc('savefig', facecolor='black')
+plt.rc('savefig', facecolor='white')
 plt.rc('axes', edgecolor='darkgrey')
 
 # Adjust axes in time series plots
@@ -78,10 +78,10 @@ plt.xticks(np.arange(0, 12, 1), months)
 
 # Set x-axis and y-axis labels
 plt.xlabel(r'\textbf{MONTH}')
-plt.ylabel(r'\textbf{Extent [$\bf{\times 10^{6}}$\ \textbf{km}$\bf{^2}$]}')
+plt.ylabel(r'\textbf{Extent [$\bf{\times 10^{6}}$\ \textbf{km}$\bf{^2}$]}',fontsize=15)
 
 # Move the legend outside of the graph to the right
 plt.tight_layout()
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-plt.savefig(directoryfigure + 'nsidc_sie_cpolar_dark.png', dpi=300,  bbox_inches='tight')
+plt.savefig(directoryfigure + 'nsidc_sie_cpolar_w.png', dpi=500,  bbox_inches='tight')
 
